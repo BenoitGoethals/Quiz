@@ -6,6 +6,18 @@
 import model
 import Utils
 
+from prettytable import PrettyTable
+
+
+def print_table(_questions):
+    x = PrettyTable()
+
+    x.field_names = ["category", "type", "difficulty", "correct_answer"]
+    for q in _questions:
+        x.add_row([q.category, q.type, q.difficulty, q.correct_answer])
+
+    print(x)
+
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -16,8 +28,8 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
     questions = Utils.WebApi.questions()
-    scoreBoard = model.ScoreBoard()
-
+    # scoreBoard = model.ScoreBoard(questions)
+    print_table(questions)
     running = True
     while running:
         pass

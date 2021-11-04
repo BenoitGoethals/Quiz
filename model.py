@@ -1,8 +1,11 @@
 class Question:
 
-    def __init__(self, phrase, answer):
-        self.phrase = phrase
-        self.answer = answer
+    def __init__(self, category, type, difficulty, correct_answer, incorrect_answers):
+        self.type = type
+        self.category = category
+        self.difficulty = difficulty
+        self.correct_answer = correct_answer
+        self.incorrect_answers = incorrect_answers
 
 
 class ScoreBoard:
@@ -20,9 +23,9 @@ class ScoreBoard:
 
 
 class CheckAnswer:
-
-    def Check(self, question:Question, answer):
-        if answer == question.answer:
+    @staticmethod
+    def Check(self, question:Question, answer:str):
+        if answer.lower() == question.answer.lower():
             return True
         else:
             return False
