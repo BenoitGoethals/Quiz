@@ -22,5 +22,5 @@ class WebApi:
         list_questions=[]
 
         for q in strData["results"]:
-            list_questions.append(model.Question(q["category"], q["type"], q["difficulty"], q["correct_answer"], q["incorrect_answers"]))
+            list_questions.append(model.Question(q["question"], q["category"], q["type"], q["difficulty"], q["correct_answer"], q["incorrect_answers"]))
         return list_questions
